@@ -1,0 +1,19 @@
+[server]
+[mysqld]
+[galera]
+[embedded]
+[mariadb]
+[mariadb-10.0]
+query_cache_size=0
+binlog_format=ROW
+default_storage_engine=innodb
+innodb_autoinc_lock_mode=2
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3"
+wsrep_cluster_name='cluster1'
+wsrep_node_address='<%= node[:ipaddress]%>'
+wsrep_node_name='<%= node[:hostname]%>'
+wsrep_sst_method=rsync
+wsrep_sst_auth=cluster:pass
+wsrep_auto_increment_control=0
+wsrep_retry_autocommit=1

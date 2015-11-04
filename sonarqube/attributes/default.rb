@@ -1,0 +1,5 @@
+default[:mysql][:dbase] = 'sonar'
+default[:mysql][:user] = 'sonarqube'
+default[:mysql][:pass] = 'q'
+default[:sonar][:port] = '9000'
+default[:mysql][:dbase] = 'sonar'

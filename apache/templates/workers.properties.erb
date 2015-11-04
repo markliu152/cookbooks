@@ -1,0 +1,18 @@
+
+worker.list=balancer,stat,tomcat1,tomacat2
+  
+worker.tomcat1.type=ajp13  
+worker.tomcat1.port=8009  
+worker.tomcat1.host=<%= node['apache']['tom1_ip'] %>
+worker.tomcat1.lbfactor=1
+      
+worker.tomcat2.type=ajp13  
+worker.tomcat2.port=8009  
+worker.tomcat2.host=<%= node['apache']['tom2_ip'] %>
+worker.tomcat2.lbfactor=1
+                               
+worker.balancer.type=lb  
+worker.balancer.balance_workers=tomcat1,tomcat2 
+worker.balancer.sticky_session=True
+      
+worker.stat.type=status  
